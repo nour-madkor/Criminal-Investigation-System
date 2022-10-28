@@ -1,0 +1,46 @@
+displaycrime(crimeindex);
+					cout << "Do you want to edit [1].Crime Status, [2]. Number Of Criminals Involved or [3].Criminal ID.\n\n"; cin >> option;
+					while (option != 1 && option != 2 && option != 3)
+					{
+						cout << "  Invalid option...Please choose from menu....";  cin >> option;
+						break;
+					}
+					switch (option)
+					{
+					case 1:
+					{
+						cout << "  Please enter the new status:"; cin >> newstatus;  cout << endl;
+						crimes[crimeindex].status = newstatus;
+						cout << "\t\t\t\t\t\t\t\t\t\t  Data has been modified successfully" << endl;
+						break;
+					}
+					case 2:
+					{
+						cout << "  Please enter the new number of criminals involved:";   cin >> newnumofcriminals;  cout << endl;
+						crimes[crimeindex].num_of_criminals_involved = newnumofcriminals;
+						cout << "\t\t\t\t\t\t\t\t\t\t  Data has been modified successfully" << endl;
+						break;
+					}
+					case 3:
+					{
+						int number;
+						cout << "  Please enter the order of criminal ID that you want to modify:";  cin >> number;
+						if (number != 0 && number <= crimes[crimeindex].num_of_criminals_involved)
+						{
+							cout << "  Please enter the new criminal ID:";   cin >> newcriminalid;  cout << endl;
+							crimes[crimeindex].criminal_ID[number - 1] = newcriminalid;
+							cout << "\t\t\t\t\t\t\t\t\t\t  Data has been modified successfully" << endl;
+						}
+						else
+						{
+							cout << "  invalid order of criminal_ID..." << endl;
+						}
+						break;
+					}
+					default:
+					{
+						cout << "  Invalid option..\n\n";
+						break;
+					}
+					}//end of switch
+					break;
